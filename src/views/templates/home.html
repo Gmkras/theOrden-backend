@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+</div>
+
+<div class="row justify-content-center main">
+    <h3 class="text-secondary fw-bolder">Nuevo Admin user</h3>
+    <form class="main-form" method="POST" action="{{ url_for('api.create') }}" enctype="multipart/form-data">
+        <div class="form-row">
+            <label class="form-label">Nombre</label>
+            <input class="form-input" type="text" name="name" id="name" required />
+        </div>
+        <button class="form-submit" type="submit">Confirmar</button>
+    </form>
+</div>
+{% endblock %}
