@@ -13,7 +13,7 @@ def index():
 def login():
     if request.method == "POST":
         user = Admin_users(0,request.form['name'],request.form['password'])
-        logged_user = Admin_users.login(user)
+        logged_user = admin_users_controller.login(user)
         if logged_user != None:
             if logged_user.password:
                 return redirect('home.html')
