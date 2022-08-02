@@ -1,8 +1,10 @@
 from typing import NamedTuple, Optional
+from src.database.connection import get_connection
 
-class Admin_user(NamedTuple):
+class Admin_users(NamedTuple):
     admin_id: Optional[int] = None
     name: Optional[str] = None
+    password: Optional[str] = None
     
 class Customer(NamedTuple):
     order_id: Optional[int] = None

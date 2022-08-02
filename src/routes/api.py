@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, redirect, url_for
 
 from ..controller import admin_users_controller
-from ..models.models import Admin_user
+from ..models.models import Admin_users
 
 
 api_scope = Blueprint("api", __name__)
@@ -15,7 +15,7 @@ def get_list():
 
 @api_scope.route('/admin_users/<id_>', methods=['GET'])
 def get_details(id_):
-    admin_user = Admin_user(admin_id=id_)
+    admin_user = Admin_users(admin_id=id_)
 
     admin_user_new = admin_users_controller.details(admin_user)
 
@@ -24,7 +24,7 @@ def get_details(id_):
 @api_scope.route('/admin_users', methods=['POST'])
 def create():
     data = request.form
-    admin_user = Admin_user(name=data["name"])
+    admin_user = Admin_users(name=data["name"])
 
     admin_users_controller.create(admin_user)
 
@@ -34,7 +34,7 @@ def create():
 def update(id_):
     data = request.data
 
-    admin_user = Admin_user(admin_id=id_, name=data["name"])
+    admin_user = Admin_users(admin_id=id_, name=data["name"])
 
     admin_user_new = admin_users_controller.update(admin_user)
 
@@ -42,7 +42,7 @@ def update(id_):
 
 @api_scope.route('/admin_users/<id_>', methods=['DELETE'])
 def delete(id_):
-    admin_user = Admin_user(admin_id=id_)
+    admin_user = Admin_users(admin_id=id_)
 
     admin_user_new = admin_users_controller.delete(admin_user)
 

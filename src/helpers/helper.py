@@ -1,10 +1,10 @@
 import re
 
-from ..models.models import Admin_user
+from ..models.models import Admin_users
 from ..models.exceptions import UserNotValid
 
 
-def validate_admin_user(admin_user: Admin_user) -> None:
+def validate_admin_user(admin_user: Admin_users) -> None:
     if not __name_is_valid(admin_user.name):
         raise UserNotValid(f"The name: {admin_user.name} is not valid")
 
@@ -12,11 +12,11 @@ def validate_admin_user(admin_user: Admin_user) -> None:
         raise UserNotValid("The user has no name")
 
 
-def format_name(admin_user: Admin_user) -> Admin_user:
+def format_name(admin_user: Admin_users) -> Admin_users:
     admin_user_dict = admin_user._asdict()
     admin_user_dict["name"] = admin_user.name.capitalize()
 
-    return Admin_user(**admin_user_dict)
+    return Admin_users(**admin_user_dict)
 
 
 def __name_is_valid(name: str) -> bool:
