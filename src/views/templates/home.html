@@ -1,7 +1,8 @@
 {% extends 'layout.html' %}
+{% include 'navigation.html' %}
 
 {% block css %}
-    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
@@ -17,7 +18,7 @@
             <label class="form-label">Nombre</label>
             <input class="form-input" type="text" name="name" id="name" required />
         </div>
-        <button class="form-submit" type="submit">Confirmar</button>
+        <button class="form-submit" type="submit">Crear</button>
     </form>
 </div>
 {% endblock %}
